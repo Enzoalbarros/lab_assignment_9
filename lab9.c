@@ -21,7 +21,7 @@ struct HashType
 int hash(int x)
 {
     // Your hash function implementation
-    return x % 31; // Example hash function (using a constant size of 31)
+    return x % 31;
 }
 
 // parses input file to an integer array
@@ -82,7 +82,7 @@ void displayRecordsInHash(struct HashType *pHashArray, int hashSz)
     printf("\nRecords in Hash Table:\n");
     for (int i = 0; i < hashSz; ++i)
     {
-        if (pHashArray->occupied[i]) // Check if index is occupied
+        if (pHashArray->occupied[i]) 
         {
             printf("Index %d -> %d %c %d\n", i, pHashArray->records[i].id, pHashArray->records[i].name, pHashArray->records[i].order);
         }
@@ -98,14 +98,13 @@ int main(void)
     printRecords(pRecords, recordSz);
     
     // Your hash implementation
-    // Create a hash table
     struct HashType hashTable;
     hashTable.size = recordSz; // Set the size of the hash table
     hashTable.records = pRecords; // Store the records in the hash table
     hashTable.occupied = (int*)malloc(recordSz * sizeof(int)); // Allocate memory for the 'occupied' array
     for (int i = 0; i < recordSz; ++i)
     {
-        hashTable.occupied[i] = 1; // Initialize all indices as occupied
+        hashTable.occupied[i] = 1;
     }
 
     // Display records in the hash table
