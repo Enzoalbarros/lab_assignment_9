@@ -21,7 +21,7 @@ struct HashType
 int hash(int x)
 {
     // Your hash function implementation
-    return x % 31;
+    return x % 31; // Example hash function (using a constant size of 31)
 }
 
 // parses input file to an integer array
@@ -77,10 +77,10 @@ void printRecords(struct RecordType pData[], int dataSz)
 // skip the indices which are free
 // the output will be in the format:
 // index x -> id, name, order -> id, name, order ....
-void displayRecordsInHash(struct HashType *pHashArray)
+void displayRecordsInHash(struct HashType *pHashArray, int hashSz)
 {
     printf("\nRecords in Hash Table:\n");
-    for (int i = 0; i < pHashArray->size; ++i)
+    for (int i = 0; i < hashSz; ++i)
     {
         if (pHashArray->occupied[i]) // Check if index is occupied
         {
@@ -109,7 +109,7 @@ int main(void)
     }
 
     // Display records in the hash table
-    displayRecordsInHash(&hashTable);
+    displayRecordsInHash(&hashTable, recordSz);
 
     // Free memory allocated for the 'occupied' array
     free(hashTable.occupied);
